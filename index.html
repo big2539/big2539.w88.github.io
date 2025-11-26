@@ -23,7 +23,132 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); 
-            max-width: 450px;
+            max-width: 450px;<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แชร์ให้เพื่อน/กลุ่ม</title>
+
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      background: #1a1a1a;
+      font-family: sans-serif;
+      text-align: center;
+      color: white;
+    }
+
+    .container {
+      padding: 40px 20px;
+    }
+
+    .main-img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 14px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    }
+
+    button {
+      margin-top: 25px;
+      background: linear-gradient(45deg, #ff4e50, #f9d423);
+      padding: 18px 30px;
+      border: none;
+      border-radius: 14px;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 90%;
+      max-width: 360px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.25);
+    }
+
+    button:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img src="https://img5.pic.in.th/file/secure-sv1/b4e03969-6ca1-4a27-8a0e-b5369f8dd8e0.jpg" class="main-img">
+
+    <button onclick="shareFlex()">✨ กดแชร์ให้เพื่อน/กลุ่ม ✨</button>
+  </div>
+
+  <script>
+    const liffId = "2008464608-VYRDZ97E";
+
+    async function main() {
+      await liff.init({ liffId });
+    }
+    main();
+
+    async function shareFlex() {
+      const flexMessage = {
+        type: "flex",
+        altText: "🎁 รับเครดิตฟรี 100 บาท!",
+        contents: {
+          type: "bubble",
+          size: "mega",
+          hero: {
+            type: "image",
+            url: "https://img5.pic.in.th/file/secure-sv1/b4e03969-6ca1-4a27-8a0e-b5369f8dd8e0.jpg",
+            size: "full",
+            aspectMode: "cover",
+            aspectRatio: "1:1"
+          },
+          body: {
+            type: "box",
+            layout: "vertical",
+            spacing: "md",
+            contents: [
+              {
+                type: "text",
+                text: "🧧เครดิตฟรีฟรี100.-🧧",
+                weight: "bold",
+                size: "xl",
+                align: "center",
+                color: "#ffffff"
+              },
+              {
+                type: "button",
+                action: {
+                  type: "uri",
+                  label: "กดรับเครดิตฟรี",
+                  uri: "https://lin.ee/auilvqo"
+                },
+                style: "primary",
+                color: "#ff4e50"
+              },
+              {
+                type: "button",
+                action: {
+                  type: "uri",
+                  label: "รับโปรโมชั่น",
+                  uri: "https://winnerslot88.com"
+                },
+                style: "primary",
+                color: "#f9d423"
+              }
+            ]
+          },
+          styles: {
+            body: { backgroundColor: "#1a1a1a" }
+          }
+        }
+      };
+
+      await liff.shareTargetPicker([flexMessage])
+    }
+  </script>
+</body>
+</html>
+
             width: 90%;
             text-align: center;
             border-top: 5px solid #2196f3; /* เส้นขอบด้านบนสีน้ำเงิน */
