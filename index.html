@@ -8,78 +8,67 @@
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
     <style>
-        body {
-            background: linear-gradient(180deg, #ffffff, #faf4f7, #f6eaf0);
-            font-family: 'Prompt', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+.share-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 35px;
+    background: #ff4fa2;
+    background: linear-gradient(90deg, #ff4fa2, #d81b60);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
 
-        .box {
-            background: #ffffff;
-            width: 92%;
-            max-width: 450px;
-            padding: 25px;
-            border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-            text-align: center;
-            animation: fadeIn 0.8s ease-out;
-        }
+    /* Glow Neon */
+    box-shadow: 
+        0 0 8px #ff4fa2,
+        0 0 15px #ff4fa2,
+        0 0 25px #ff4fa2,
+        0 0 45px #d81b60;
 
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(20px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
+    /* Animation */
+    animation: neonPulse 1.6s infinite ease-in-out;
+    transition: 0.25s ease-in-out;
+}
 
-        .title {
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: #d81b60;
-            margin-bottom: 15px;
-        }
+@keyframes neonPulse {
+    0% {
+        transform: scale(1);
+        box-shadow:
+            0 0 6px #ff4fa2,
+            0 0 12px #ff4fa2,
+            0 0 20px #ff4fa2,
+            0 0 35px #d81b60;
+    }
+    50% {
+        transform: scale(1.07);
+        box-shadow:
+            0 0 12px #ff4fa2,
+            0 0 22px #ff4fa2,
+            0 0 35px #ff4fa2,
+            0 0 55px #d81b60;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 6px #ff4fa2,
+            0 0 12px #ff4fa2,
+            0 0 20px #ff4fa2,
+            0 0 35px #d81b60;
+    }
+}
 
-        .banner {
-            width: 100%;
-            border-radius: 14px;
-            border: 3px solid #ec407a;
-            margin-bottom: 12px;
-        }
+/* Hover ให้พุ่ง Glow กว่าเดิม */
+.share-btn:hover {
+    transform: scale(1.09);
+    box-shadow:
+        0 0 15px #ff4fa2,
+        0 0 30px #ff4fa2,
+        0 0 50px #ff4fa2,
+        0 0 80px #d81b60;
+}
 
-        .caption {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #ad1457;
-            margin-bottom: 18px;
-        }
-
-        .share-btn {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.25rem;
-            border: none;
-            border-radius: 30px;
-            background: linear-gradient(90deg, #ec407a, #d81b60);
-            color: white;
-            font-weight: 700;
-            cursor: pointer;
-            animation: pulse 1.5s infinite ease-in-out;
-        }
-
-        @keyframes pulse {
-            0% {transform: scale(1);}
-            50% {transform: scale(1.05);}
-            100% {transform: scale(1);}
-        }
-
-        .footer {
-            margin-top: 12px;
-            font-size: 0.85rem;
-            color: gray;
-        }
     </style>
 </head>
 <body>
@@ -92,7 +81,7 @@
 
     <div class="caption">แชร์ให้เพื่อน รับเครดิตฟรีทันที!</div>
 
-    <button class="share-btn" onclick="shareFlex()">✨ กดแชร์ให้เพื่อน/กลุ่ม ✨</button>
+   <button class="share-btn" onclick="shareFlex()">✨ กดแชร์ให้เพื่อน/กลุ่ม ✨</button>
 
     <div class="footer">เงื่อนไขเป็นไปตามที่เว็บไซต์กำหนด</div>
 </div>
@@ -112,14 +101,14 @@
 
         const flex = {
             type: "flex",
-            altText: "รับเครดิตฟรี 100 บาท!",
+            altText: "รับเครดิตฟรี 100 บาท! (Dark Mode)",
             contents: {
                 type: "bubble",
                 styles: {
-                    header: { backgroundColor: "#ffebf2" },
-                    hero: { backgroundColor: "#ffffff" },
-                    body: { backgroundColor: "#fff2f7" },
-                    footer: { backgroundColor: "#fff2f7" }
+                    header: { backgroundColor: "#2b2b2b" },
+                    hero: { backgroundColor: "#1a1a1a" },
+                    body: { backgroundColor: "#1f1f1f" },
+                    footer: { backgroundColor: "#1f1f1f" }
                 },
                 header: {
                     type: "box",
@@ -129,7 +118,7 @@
                         text: "✨ รับเครดิตฟรี 100 บาททันที! ✨",
                         weight: "bold",
                         size: "lg",
-                        color: "#d81b60",
+                        color: "#ff77c6",
                         align: "center"
                     }]
                 },
@@ -149,7 +138,7 @@
                             text: "แชร์ให้เพื่อนแล้วรับทุนฟรี 100.- ได้เลย!",
                             wrap: true,
                             align: "center",
-                            color: "#ad1457"
+                            color: "#ff9ad6"
                         }
                     ]
                 },
@@ -161,7 +150,7 @@
                         {
                             type: "button",
                             style: "primary",
-                            color: "#e91e63",
+                            color: "#ff4fa2",
                             action: {
                                 type: "uri",
                                 label: "🧧เครดิตฟรีฟรี100.-🧧",
@@ -171,7 +160,7 @@
                         {
                             type: "button",
                             style: "secondary",
-                            color: "#f06292",
+                            color: "#d81b60",
                             action: {
                                 type: "uri",
                                 label: "🎰รับโปรโมชั่น🎰",
